@@ -1,0 +1,265 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Step by Step</title>
+<link rel="stylesheet" href="{% static 'merchandise/css/checkout.css' %}">
+</head>
+<body>
+  <header>
+    <img src="{% static 'merchandise/Resources/HVEPlogo.png' %}" alt="Logo" id="logo">
+    <div id="nav-bar">HimVillageePrahari Foundation</div>
+  </header>
+
+  <div class="checkout-wrapper">
+    <h1>Checkout</h1>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressFill"></div>
+        <div class="progress-step active" data-step="1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Items</div>
+        </div>
+        <div class="progress-step" data-step="2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Contact Info</div>
+        </div>
+        <div class="progress-step" data-step="3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Delivery</div>
+        </div>
+        <div class="progress-step" data-step="4">
+          <div class="step-circle">4</div>
+          <div class="step-label">Review</div>
+        </div>
+        <div class="progress-step" data-step="5">
+          <div class="step-circle">5</div>
+          <div class="step-label">Payment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1: Items -->
+    <div class="form-step active" data-step="1">
+      <h2 class="section-title">Review Your Items</h2>
+      <ul class="items-list">
+        <li class="item-row">
+          <span class="item-name">Premium Product 1</span>
+          <div class="item-controls">
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty(1, -1)">−</button>
+              <span class="qty-display" id="qty1">3</span>
+              <button class="qty-btn" onclick="updateQty(1, 1)">+</button>
+            </div>
+            <span class="item-price" id="price1">₹90</span>
+          </div>
+        </li>
+        <li class="item-row">
+          <span class="item-name">Premium Product 2</span>
+          <div class="item-controls">
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty(2, -1)">−</button>
+              <span class="qty-display" id="qty2">2</span>
+              <button class="qty-btn" onclick="updateQty(2, 1)">+</button>
+            </div>
+            <span class="item-price" id="price2">₹50</span>
+          </div>
+        </li>
+        <li class="item-row">
+          <span class="item-name">Premium Product 3</span>
+          <div class="item-controls">
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty(3, -1)">−</button>
+              <span class="qty-display" id="qty3">1</span>
+              <button class="qty-btn" onclick="updateQty(3, 1)">+</button>
+            </div>
+            <span class="item-price" id="price3">₹18</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Step 2: Contact Information -->
+    <div class="form-step" data-step="2">
+      <h2 class="section-title">Contact Information</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="firstName" placeholder="Enter first name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" id="phone" placeholder="Enter mobile number" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="Enter email address" required>
+        </div>
+        <div class="form-group">
+          <label>Whats App no.</label>
+          <input type="tel" id="wp" placeholder="Enter your Whats app number" required>
+        </div>
+        <div class="form-group">
+          <label>Alternate Phone</label>
+          <input type="tel" id="altphone" placeholder="Enter Alternate mobile number" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Delivery Details -->
+    <div class="form-step" data-step="3">
+      <h2 class="section-title">Delivery Details</h2>
+      <div class="form-group">
+        <label>House / Flat / Street</label>
+        <input type="text" id="address1" placeholder="Enter house or street address">
+      </div>
+      <div class="form-group">
+        <label>Locality / Area</label>
+        <input type="text" id="address2" placeholder="Enter locality or area">
+      </div>
+      <div class="form-group">
+        <label>City / Town</label>
+        <input type="text" id="city" placeholder="Enter city or town name">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>State</label>
+          <select id="state">
+            <option value="">Select State</option>
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Delhi</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pincode</label>
+          <input type="text" id="pincode" placeholder="Enter 6-digit pincode">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Review & Confirm -->
+    <div class="form-step" data-step="4">
+      <h2 class="section-title">Review & Confirm</h2>
+      <!-- Donation Section -->
+  <div class="donation-section">
+    <div class="donation-header">
+      <span class="heart-icon">♥</span>
+      <h3>Donate to Children's Education</h3>
+    </div>
+    <p class="donation-subtitle">Help us support education for a brighter tomorrow!</p>
+    <div class="donation-options">
+      <div class="donation-option">
+        <input type="radio" id="noDonation" name="donation" value="0" checked>
+        <label for="noDonation">No Donation</label>
+      </div>
+      <div class="donation-option">
+        <input type="radio" id="donate10" name="donation" value="10">
+        <label for="donate10">₹10</label>
+      </div>
+      <div class="donation-option">
+        <input type="radio" id="donate50" name="donation" value="50">
+        <label for="donate50">₹50</label>
+      </div>
+      <div class="donation-option">
+        <input type="radio" id="donate100" name="donation" value="100">
+        <label for="donate100">₹100</label>
+      </div>
+    </div>
+    <div class="custom-donation">
+      <label for="customAmount">Or enter custom amount:</label>
+      <div class="custom-input-wrapper">
+        <span class="currency-symbol">₹</span>
+        <input type="number" id="customAmount" placeholder="Enter amount" min="1">
+      </div>
+    </div>
+  </div>
+      <div class="summary-box">
+        <div class="summary-row">
+          <span class="summary-label">Subtotal:</span>
+          <span class="summary-value" id="summarySubtotal">₹158</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">GST (3%):</span>
+          <span class="summary-value" id="summaryGST">₹4.74</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Donation:</span>
+          <span class="summary-value" id="summaryDonation">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Total Amount:</span>
+          <span class="summary-value" id="summaryTotal">₹</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Payment Method -->
+<div class="form-step" data-step="5">
+  <h2 class="section-title">Payment</h2>
+  <div class="summary-box">
+        <div class="summary-row">
+          <span class="summary-label">Scan QR and pay:</span>
+          <span class="summary-value" id="finalTotal">₹0.00</span>
+        </div>
+      </div>
+
+  <div class="qr-section">
+    <!-- <img src="../Resources/QRC.jpeg" alt="QR Code" class="qr-code"> -->
+  </div>
+
+  <!-- Upload Screenshot -->
+  <div class="upload-section">
+    <label for="paymentScreenshot">Upload Payment Screenshot:</label>
+    <input type="file" id="paymentScreenshot" accept="image/*" required>
+  </div>
+</div>
+
+
+    <!-- Navigation Buttons -->
+    <div class="button-group">
+      <button class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">Back</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">Next</button>
+    </div>
+  </div>
+
+<script src="{% static 'merchandise/js/checkout.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HVEP — Turning Waste into Wonder</title>
+  <!-- Fonts: Inter for UI, Playfair Display for headlines -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'merchandise/css/home.css' %}">
+
+</head>
+  <body>
+    <header id="site-header" class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">
+          <div class="brand-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <path fill="currentColor" d="M12 2C8 6 6 8 6 11c0 3 2 5 6 9 4-4 6-6 6-9 0-3-2-5-6-9z"></path>
+            </svg>
+          </div>
+          <span class="brand-text">HVEP</span>
+        </a>
+        <nav class="main-nav">
+          <a href="#products" class="nav-link">
+            <span class="nav-text">Products</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#about" class="nav-link">
+            <span class="nav-text">About Us</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#stories" class="nav-link">
+            <span class="nav-text">Stories</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#contact" class="nav-link">
+            <span class="nav-text">Contact</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16m-16 6h16"/>
+          </svg>
+        </button>
+        <div class="actions">
+          <button class="btn ghost" id="login-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"/>
+              <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"/>
+            </svg>
+            <span>Login</span>
+          </button>
+          <button class="btn accent" id="donate-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span>Donate</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+        <div class="hero-carousel" id="hero-carousel">
+          <button class="carousel-btn prev" id="hero-prev" aria-label="Previous slide">‹</button>
+          <button class="carousel-btn next" id="hero-next" aria-label="Next slide">›</button>
+          <div class="slides">
+            <div class="slide active" data-index="0">
+              <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600" alt="Kids creating art from plastic bottles">
+              <div class="slide-overlay"></div>
+              <div class="slide-content container">
+                <div class="slide-text">
+                  <h1>Turning Waste into Wonder</h1>
+                  <p>Every Product Saves a Story from the Landfill</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide" data-index="1">
+              <img src="https://images.unsplash.com/photo-1604845538063-de348378c9c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600" alt="tyre planters and glass jar lanterns">
+              <div class="slide-overlay"></div>
+              <div class="slide-content container">
+                <div class="slide-text">
+                  <h1>Creativity Born from Discarded Things</h1>
+                  <p>Handcrafted treasures from recycled materials.</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide" data-index="2">
+              <img src="https://images.unsplash.com/photo-1640580086296-a6664d19d23d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600" alt="waste transformed to products">
+              <div class="slide-overlay"></div>
+              <div class="slide-content container">
+                <div class="slide-text">
+                  <h1>Art for Awareness</h1>
+                  <p>Discover the beauty of sustainable craftsmanship.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-indicators" id="slide-indicators">
+            <button class="indicator active" data-index="0" aria-label="Go to slide 1"></button>
+            <button class="indicator" data-index="1" aria-label="Go to slide 2"></button>
+            <button class="indicator" data-index="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories (small circular badges under hero) -->
+      <section id="categories" class="categories container" aria-label="Product categories">
+        <div class="category-grid" role="list">
+          <button class="category" role="listitem" aria-label="Waste to Wonder Creations: Upcycled art, recycled fabric, handmade paper, repurposed home decor, scrap metal and glass art" title="Upcycled Art & Craft; Recycled Fabric Items; Handmade Paper Products; Repurposed Home Décor; Scrap Metal & Glass Art">
+            <span class="category-circle">
+              <!-- <img class="category-img" src="./team1-assets/images/waste-to-wonder.png" alt="Upcycled art and crafts"> -->
+            </span>
+            <span class="category-label">Waste to Wonder</span>
+          </button>
+
+          <button class="category" role="listitem" aria-label="Himalayan Pahadi Products: local handicrafts, honey, textiles, spices, souvenirs" title="Local Handicrafts; Pahadi Honey & Herbal Teas; Handwoven Textiles; Local Spices & Dried Herbs; Cultural Souvenirs">
+            <span class="category-circle">
+              <img class="category-img" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Himalayan handicrafts and textiles">
+            </span>
+            <span class="category-label">Himalayan Pahadi</span>
+          </button>
+
+          <button class="category" role="listitem" aria-label="Natural & Eco Lifestyle Products: dhoop, candles, soaps, bamboo reusables, aromatherapy kits" title="Dhoop Battis & Herbal Incense; Eco Candles & Essential Oils; Handmade Soaps & Skincare; Bamboo Brushes, Cutlery, and Reusables; Aromatherapy Kits & Eco Wellness Sets">
+            <span class="category-circle">
+              <!-- <img class="category-img" src="./team1-assets/images/natural-and-eco.png -->
+              " alt="Eco candles and natural wellness products">
+            </span>
+            <span class="category-label">Natural & Eco</span>
+          </button>
+
+          <button class="category" role="listitem" aria-label="Rural Wellness & Organic Produce: honey, herbal teas, pickles, grains, medicinal herbs" title="Himalayan Honey; Herbal Teas & Powders; Pickles, Jams & Local Snacks; Millet & Organic Grains; Medicinal Herbs & Wellness Mixes">
+            <span class="category-circle">
+              <!-- <img class="category-img" src="./team1-assets/images/rural-wellness.png" alt="Honey and organic produce"> -->
+            </span>
+            <span class="category-label">Rural Wellness</span>
+          </button>
+
+          <button class="category" role="listitem" aria-label="Student & Community Creations: student art, awareness posters, handmade crafts, reused stationery" title="Art from Recycled Materials; Awareness Posters; Handmade Crafts; Stationery or Reused Utility Products">
+            <span class="category-circle">
+              <!-- <img class="category-img" src="./team1-assets/images/student-creation.png" alt="Student recycled art"> -->
+            </span>
+            <span class="category-label">Student Creations</span>
+          </button>
+
+          <button class="category" role="listitem" aria-label="Eco Gift Hampers: festival gift sets, wellness hampers, sustainable starter kits, custom boxes" title="Festival Gift Sets; Wellness Hampers; Sustainable Starter Kits; Custom Eco Gift Boxes">
+            <span class="category-circle">
+              <img class="category-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Eco gift hamper box">
+            </span>
+            <span class="category-label">Eco Gift Hampers</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- NGO Intro -->
+      <section id="about" class="container ngo-intro">
+        <div class="mission-tag">Our Journey of Impact</div>
+        <div class="ngo-inner">
+          <div class="ngo-text">
+            <h2>Our Mission</h2>
+            <div class="mission-content">
+              <p class="mission-lead">
+                HVEP partners with local artisans and communities to transform waste into beautiful, usable products. Every purchase supports livelihoods and reduces landfill waste.
+              </p>
+              <div class="mission-stats">
+                <div class="stat-item">
+                  <span class="stat-number">5000+</span>
+                  <span class="stat-label">Artisans Empowered</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">12 tons</span>
+                  <span class="stat-label">Waste Recycled Monthly</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">25+</span>
+                  <span class="stat-label">Community Workshops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ngo-visual">
+            <div class="image-grid">
+              <img src="https://images.unsplash.com/photo-1758599668299-beebedfabf7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="community volunteers" class="main-image">
+              <img src="https://images.unsplash.com/photo-1594789202785-8023eeb2c75e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="artisan crafting" class="secondary-image">
+              <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="sustainable products" class="secondary-image">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section id="products" class="products container">
+        <div class="section-head text-center">
+          <span class="section-tag">Handcrafted with Purpose</span>
+          <h2>Explore Our Collection</h2>
+          <p>Each piece tells a story of sustainability and artisanal craftsmanship</p>
+        </div>
+        <div class="product-grid" id="product-grid">
+          <!-- product cards inserted by JS -->
+        </div>
+        <div class="products-footer">
+         <a href="team2-product_flow1.html">
+           <button class="btn accent view-all">
+            <span>View All Products</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+          </button>
+         </a>
+        </div>
+      </section>
+
+      <!-- Product Stories -->
+      <section id="stories" class="container stories">
+        <div class="section-head text-center">
+          <span class="story-tag">Artisan Stories</span>
+          <h2>Meet Our Creative Heroes</h2>
+          <p class="story-lead">Behind every product is a story of transformation and hope</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1719154717814-2a42aabf08c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Anjali and her community crafting with recycled bottles" loading="lazy">
+              <div class="story-badge">Featured Artist</div>
+            </div>
+            <div class="story-content">
+              <h3>Anjali & Community</h3>
+              <p class="story-quote">"Every bottle we save becomes a piece of art that tells our story."</p>
+              <div class="story-stats">
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Dehradun</span>
+                </div>
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                  <span>500+ bottles saved</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1631273553464-7595e1a5b68d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Ravi working in his tire upcycling workshop" loading="lazy">
+              <div class="story-badge">Master Craftsman</div>
+            </div>
+            <div class="story-content">
+              <h3>Ravi's Workshop</h3>
+              <p class="story-quote">"From discarded tires to garden treasures - that's the magic we create."</p>
+              <div class="story-stats">
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Mussoorie</span>
+                </div>
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                  <span>50 tires transformed</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1708578200684-3aa944b73237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Students creating art from recycled materials" loading="lazy">
+              <div class="story-badge">Youth Initiative</div>
+            </div>
+            <div class="story-content">
+              <h3>Students for Earth</h3>
+              <p class="story-quote">"We're turning our school's waste into works of wonder."</p>
+              <div class="story-stats">
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Rishikesh</span>
+                </div>
+                <div class="stat">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                  <span>3 clean-ups funded</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="stories-footer">
+          <button class="btn ghost stories-btn">
+            <span>View All Stories</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Donation (large) -->
+      <section id="donate" class="donation-large" aria-label="Donate to support community workshops">
+        <div class="donation-bg" aria-hidden="true"></div>
+        <div class="container donation-large-inner">
+          <div class="donation-copy">
+            <span class="donation-tag">Make a Lasting Impact</span>
+            <h2>Transform Lives Through Art</h2>
+            <p class="donation-lead">Your contribution empowers artisans, funds workshops, and helps turn waste into opportunity. Every donation creates ripples of positive change in our communities.</p>
+            
+            <div class="donation-impact">
+              <div class="impact-item">
+                <span class="impact-number">₹50</span>
+                <span class="impact-text">Provides art supplies for one child</span>
+              </div>
+              <div class="impact-item">
+                <span class="impact-number">₹100</span>
+                <span class="impact-text">Supports an artisan's daily materials</span>
+              </div>
+              <div class="impact-item">
+                <span class="impact-number">₹200</span>
+                <span class="impact-text">Funds a workshop training session</span>
+              </div>
+            </div>
+
+            <div class="donation-ctas">
+              <button id="donate-now" class="btn accent">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span>Donate Now</span>
+              </button>
+              <button id="learn-more" class="btn ghost">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 16v-4M12 8h.01"></path>
+                </svg>
+                <span>Learn More About Impact</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="col">
+          <h3>HVEP</h3>
+          <p class="muted">Creativity from discarded things.</p>
+        </div>
+        <div class="col">
+          <h4>Navigate</h4>
+          <a href="#">Home</a>
+          <a href="#products">Products</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col">
+          <h4>Legal</h4>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="col">
+          <h4>Follow Us</h4>
+          <div class="socials">
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+  <div class="footer-bottom"><p>© 2025 HVEP. All rights reserved.</p></div>
+    </footer>
+
+<script src="{% static 'merchandise/js/home.js' %}"></script>
+  </body>
+</html>

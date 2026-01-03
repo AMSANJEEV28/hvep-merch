@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShop Products</title>
+<link rel="stylesheet" href="{% static 'merchandise/css/products.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body onload="initProductApp()">
+    <div id="filter-modal" class="filter-modal hidden">
+        <div class="filter-modal-content">
+            <button class="modal-close-btn" onclick="toggleFilterModal(false)">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="sidebar-title">Refine Search</h2>
+            <div id="filter-modal-content-placeholder">
+            </div>
+            <button class="apply-filter-btn" onclick="applyFilters(); toggleFilterModal(false);">
+                Apply Filters
+            </button>
+        </div>
+    </div>
+    
+    <header class="eco-header">
+        <a href="#" onclick="showView('product-listing'); return false;" class="logo-link">
+            <i class="fas fa-leaf logo-icon"></i>
+            <span id="nav-bar">EcoShop</span>
+        </a>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input 
+                type="search" 
+                id="global-search" 
+                placeholder="Search products by name..." 
+                oninput="updateSearchTerm(this)"
+            >
+        </div>
+
+        <nav class="ml-auto">
+            <button class="nav-btn active-nav" data-view="product-listing" onclick="showView('product-listing')">Products</button>
+        </nav>
+    </header>
+
+    <div class="product-wrapper">
+        <div id="product-listing" class="app-view active">
+            <h1 class="main-title">Curated Sustainable Picks</h1>
+            <button class="mobile-filter-btn" onclick="toggleFilterModal(true)">
+                <i class="fas fa-sliders-h"></i> Filter
+            </button>
+
+            <div class="main-layout">
+                <aside id="filter-sidebar" class="sidebar">
+                    <h2 class="sidebar-title">Refine Search</h2>
+                    <div id="filters-desktop-container">
+                        <div class="filter-group" id="category-filter">
+                            <p class="filter-label">Product Category</p>
+                        </div>
+                        <div class="filter-group">
+                            <p class="filter-label">Max Price: <span id="max-price-display">₹5000</span></p>
+                            <input type="range" id="price-range" min="100" max="5000" value="5000" oninput="document.getElementById('max-price-display').textContent = '₹' + this.value; applyFilters()">
+                        </div>
+                        <div class="filter-group" id="rating-filter">
+                            <p class="filter-label">Minimum Eco-Rating</p>
+                             <label><input type="radio" name="rating" value="0" checked onchange="applyFilters()"> All Ratings</label>
+                             <label><input type="radio" name="rating" value="5" onchange="applyFilters()"><i class="fas fa-star text-yellow-500"></i> 5 Stars</label>
+                             <label><input type="radio" name="rating" value="4" onchange="applyFilters()"><i class="fas fa-star text-yellow-500"></i> 4 Stars & Up</label>
+                             <label><input type="radio" name="rating" value="3" onchange="applyFilters()"><i class="fas fa-star text-yellow-500"></i> 3 Stars & Up</label>
+                        </div>
+                    </div>
+                </aside>
+                    <!-- Product Grid -->
+                <section class="content-area">
+                    <!-- Sorting Bar -->
+                    <div class="sort-bar">
+                        <p class="result-count">Showing <span id="product-count">0</span> Products</p>
+                        
+                        <!-- Custom Sort Dropdown -->
+                        <div class="sort-controls">
+                            <span class="sort-label">Sort by:</span>
+                            <div class="custom-dropdown">
+                                <button id="sort-dropdown-btn" class="dropdown-toggle" onclick="toggleSortDropdown()">
+                                    <span id="sort-current-value">Newest Arrivals</span>
+                                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                </button>
+                                <div id="sort-dropdown-menu" class="dropdown-menu">
+                                    <button class="dropdown-option" data-value="newest" onclick="selectSortOption('newest')">Newest Arrivals</button>
+                                    <button class="dropdown-option" data-value="price_asc" onclick="selectSortOption('price_asc')">Price: Low to High</button>
+                                    <button class="dropdown-option" data-value="price_desc" onclick="selectSortOption('price_desc')">Price: High to Low</button>
+                                    <button class="dropdown-option" data-value="rating_desc" onclick="selectSortOption('rating_desc')">Top Rated</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="product-grid" class="product-grid">
+                        <!-- Product cards will be dynamically inserted here by JS -->
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="product-detail" class="app-view hidden">
+            <button class="back-btn" onclick="showView('product-listing')">
+                <i class="fas fa-arrow-left"></i> Back to All Products
+            </button>
+            <div id="detail-container">
+                <!-- Product details will be dynamically inserted here by JS -->
+                
+            </div>
+        </div>
+        
+    </div>
+
+<script src="{% static 'merchandise/js/products.js' %}"></script>
+</body>
+</html>
