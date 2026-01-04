@@ -1,19 +1,21 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HVEP — Turning Waste into Wonder</title>
+{% block title %}Merch Home | Waste to Wonder{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'merchandise/css/home.css' %}">
   <!-- Fonts: Inter for UI, Playfair Display for headlines -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'merchandise/css/home.css' %}">
 
-</head>
-  <body>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- 
     <header id="site-header" class="site-header">
       <div class="container header-inner">
         <a class="brand" href="#">
@@ -64,6 +66,7 @@
         </div>
       </div>
     </header>
+     -->
 
     <main>
       <!-- HERO -->
@@ -356,6 +359,7 @@
         </div>
       </section>
     </main>
+<!-- 
 
     <footer class="site-footer">
       <div class="container footer-inner">
@@ -386,8 +390,10 @@
         </div>
       </div>
   <div class="footer-bottom"><p>© 2025 HVEP. All rights reserved.</p></div>
-    </footer>
+    </footer> -->
 
+{% endblock %}
+
+{% block extra_js %}
 <script src="{% static 'merchandise/js/home.js' %}"></script>
-  </body>
-</html>
+{% endblock %}
