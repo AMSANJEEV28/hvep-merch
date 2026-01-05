@@ -7,15 +7,108 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="{% static 'merchandise/css/home.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="navstyle.css">
+
 
     {% block extra_css %}{% endblock %}
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav>
-<!-- ADD NAVBAR HERE -->NAVBAR HERE
+<nav class="navbar">
+    <!-- Top Navbar -->
+    <div class="navbar-top">
+        <!-- Logo -->
+        <div id="logo">
+            <img src="HVEPlogo.png" alt="HimVillage ePrahari Store Logo"
+                 style="width: 70px; height: auto; margin-top: 5px;border-radius: 50%;">
+        </div>
+
+        <!-- Deliver To -->
+        <div class="deliver-to">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="deliver-content">
+                <span class="deliver-label">Deliver to</span>
+                <span class="deliver-location">Nagpur 440001</span>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <select class="search-dropdown" id="categorySelect">
+                <option>All Categories</option>
+                <option>Apparel</option>
+                <option>Bags & Accessories</option>
+                <option>Home & Living</option>
+                <option>Eco Products</option>
+                <option>Handicrafts</option>
+            </select>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search eco-friendly products...">
+            <button class="search-button" id="searchBtn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Language -->
+        <div class="nav-item">
+            <i class="fas fa-globe"></i>
+            <div class="nav-item-content">
+                <span class="nav-item-title">EN</span>
+            </div>
+        </div>
+
+        <!-- Account -->
+        <div class="nav-item">
+            <div class="nav-item-content">
+                <span class="nav-item-label">Hello, Sign in</span>
+                <span class="nav-item-title">Account & Lists <i class="fas fa-caret-down"></i></span>
+            </div>
+        </div>
+
+        <!-- Returns & Orders -->
+        <div class="nav-item">
+            <div class="nav-item-content">
+                <span class="nav-item-label">Returns</span>
+                <span class="nav-item-title">& Orders</span>
+            </div>
+        </div>
+
+        <!-- Cart -->
+        <div class="nav-item cart" id="cartBtn">
+            <div style="position: relative;">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <span class="cart-text">Cart</span>
+        </div>
+
+        <!-- navigation to home -->
+        <div class="nav-item home-btn" id="homeBtn">
+            <i class="fas fa-home"></i>
+            <div class="nav-item-content">
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Navbar -->
+    <div class="navbar-bottom">
+        <a href="#" class="nav-link all-menu">
+            <i class="fas fa-bars"></i> All
+        </a>
+        <a href="#" class="nav-link">Today's Deals</a>
+        <a href="#" class="nav-link"><i class="fas fa-leaf"></i> Eco-Friendly</a>
+        <a href="#" class="nav-link">Apparel</a>
+        <a href="#" class="nav-link">Bags & Accessories</a>
+        <a href="#" class="nav-link">Home Decor</a>
+        <a href="#" class="nav-link">Handicrafts</a>
+        <a href="#" class="nav-link">Gift Items</a>
+        <a href="#" class="nav-link">Best Sellers</a>
+        <a href="#" class="nav-link"><i class="fas fa-gift"></i> Gift Cards</a>
+    </div>
 </nav>
+
+<script src="navscript.js"></script>
 
 <!-- PAGE CONTENT -->
 <main>
