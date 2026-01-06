@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="{% static 'merchandise/css/navstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'merchandise/css/footer.css' %}">
+
 
 
     {% block extra_css %}{% endblock %}
@@ -89,7 +91,7 @@
             <div class="nav-item home-btn" id="homeBtn">
                 <i class="fas fa-home"></i>
                 <div class="nav-item-content">
-                </div>
+                </div> 
             </div>
         </div>
         <!-- Bottom Navbar -->
@@ -116,9 +118,56 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <!-- ADD FOOTER HERE -->
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h4>HimVillage E-Prahari</h4>
+                <p>
+                    Promoting eco-friendly, handmade and sustainable products while
+                    empowering rural communities across India.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/merch/">Home</a></li>
+                    <li><a href="/merch/products/">Products</a></li>
+                    <li><a href="/merch/checkout/">Checkout</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Himvillage/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/himvillage_org/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/Himvillage"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/himvillage/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © {{ now|date:"Y" }} HimVillage E-Prahari. All rights reserved.
+        </div>
     </footer>
+
+
 
     <!-- Global JS -->
     {% block extra_js %}
@@ -127,6 +176,7 @@
 
 
     <script src="{% static 'merchandise/js/navscript.js' %}"></script>
+    <script src="{% static 'merchandise/js/footer.js' %}"></script>
 
 
 </body>
